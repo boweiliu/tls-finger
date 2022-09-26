@@ -7,4 +7,4 @@
 #tee l2r | tee /dev/null | tee /dev/null
 #tee l2r
 #tee l2r | stdbuf -i0 -o0 -e0 hexdump -v -e '/1 "%02X\n"' | tee l2r.hex | stdbuf -i0 -o0 -e0 ./unhex.py
-stdbuf -i0 -o0 -e0 hexdump -v -e '/1 "%02X\n"' | ./spoof.py | tee l2r.after | stdbuf -i0 -o0 -e0 ./unhex.py
+tee l2r | stdbuf -i0 -o0 -e0 hexdump -v -e '/1 "%02X\n"' | tee l2r.before | ./spoof.py | tee l2r.after | stdbuf -i0 -o0 -e0 ./unhex.py

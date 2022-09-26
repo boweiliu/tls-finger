@@ -24,8 +24,8 @@ with open('/dev/stdout', 'w') as g:
     with open('/dev/stdin') as f:
         for idx, line in enumerate(f):
             out = line
-            if idx == 0:
-                assert(line[0:2] == '16')
-                out = '17\n' # change from 16 to 17
+            if idx == 85:
+                assert(line[0:2] == '2C')
+                #out = '2d\n'
             g.write(out)
             g.flush()
