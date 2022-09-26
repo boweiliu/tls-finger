@@ -25,6 +25,7 @@ with open('/dev/stdout', 'w') as g:
         for idx, line in enumerate(f):
             out = line
             if idx == 0:
+                assert(line[0:2] == '16')
                 out = '17\n' # change from 16 to 17
             g.write(out)
             g.flush()
