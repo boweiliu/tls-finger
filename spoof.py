@@ -2,8 +2,8 @@
 #input: lines of hex codes, 2 ch per line
 #output: edit the nth hex character
 
-eg
 """
+eg
 00000000: 1603 0102 0001 0001 fc03 03f4 8ed8 de28  ...............(
 00000010: 0ff0 f95a 9bc9 e228 dd94 1a8b cc11 876d  ...Z...(.......m
 00000020: b215 2861 121d fd04 bc51 1620 0def 3a2a  ..(a.....Q. ..:*
@@ -24,5 +24,7 @@ with open('/dev/stdout', 'w') as g:
     with open('/dev/stdin') as f:
         for idx, line in enumerate(f):
             out = line
+            if idx == 0:
+                out = '17\n' # change from 16 to 17
             g.write(out)
             g.flush()
