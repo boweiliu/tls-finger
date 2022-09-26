@@ -20,4 +20,9 @@ eg
 000000d0: 3208 6874 7470 2f31 2e31 0016 0000 0017  2.http/1.1......
 """
 
-
+with open('/dev/stdout', 'w') as g:
+    with open('/dev/stdin') as f:
+        for idx, line in enumerate(f):
+            out = line
+            g.write(out)
+            g.flush()
