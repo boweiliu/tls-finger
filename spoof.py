@@ -23,9 +23,12 @@ eg
 with open('/dev/stdout', 'w') as g:
     with open('/dev/stdin') as f:
         for idx, line in enumerate(f):
-            out = line
-            if idx == 85:
-                assert(line[0:2] == '2C')
-                #out = '2d\n'
+            out = line # swap 0x86 and 0x88, 0035 and 002f
+            if idx == 135:
+                assert(line[0:2] == '35')
+                out = '2F\n'
+            if idx == 137:
+                assert(line[0:2] == '2F')
+                out = '35\n'
             g.write(out)
             g.flush()
